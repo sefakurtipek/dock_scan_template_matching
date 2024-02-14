@@ -1,0 +1,17 @@
+<launch>
+    <!-- Set parameters -->
+    <param name="initialGuess_yaw_degrees" type="double" value="265.364" />
+    <param name="modelSampleNum" type="int" value="10" />
+    <param name="max_distance_between_corresponding_points" type="double" value=" 0.1" />
+    <param name="scoreThreshold" type="double" value="0.01" />
+    <param name="vShapeModelName" type="string" value="RMRS004.pcd" />
+    <param name="laserFrameName" type="string" value="/r300311695/base_front_laser_link" /> <!-- Set robot laser frame according to your robot -->
+    <param name="mapFrameName" type="string" value="v/mjdtwfb31e2e/map" />
+    <param name="laserScanName" type="string" value="/r300311695/scan" />
+    <param name="absolute_path" type="string" value="/home/sefa/catkin_ws/src/dock_scan_template_matching/src/" />
+    <!-- Launch your node -->
+    <node name="laser_scan_processor" pkg="dock_scan_template_matching" type="laser_scan_processor" output="screen">
+        <remap from="/tf" to="/r300311695/tf"/>
+        <remap from="/tf_static" to="/r300311695/tf_static"/>
+    </node>
+</launch>
