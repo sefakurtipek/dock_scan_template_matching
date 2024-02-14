@@ -1,9 +1,8 @@
 # Robot Charge Station Detection using Template Matching
 
-
-## Overview
+### Overview
 The `dock_scan_template_matching` package is a specialized ROS package. It implements algorithm for robust robot charge station detection for accurate and precise docking purpose using 2D laser scan data. Firstly downsamples model point cloud to decrease computational complexity. After that, sampled model point cloud is transformed to every point from laser scan data on 2D. After transformation of model point cloud, score is calculated according to corresponding points between model and laser scan data by comparing their distance. Bestscore gives best transformation for model point cloud. It means that best tranformation gives accurate and precise location of robot charge station for docking purpose.
-I am sharing my result on record of rviz visualizer;
+I am sharing my result on record of rviz visualizer;\
 https://youtu.be/Tps68zlMCuk
 
 ## Dependencies
@@ -35,16 +34,16 @@ rosrun rviz rviz /tf:=/r300311695/tf /tf_static=/r300311695/tf_static
 ```
 
 ## Parameters you need to know
-The user may need to tune given parameters located in `params.launch` file.
-`initialGuess_yaw_degrees`: initial angle guess on radian
-`modelSampleNum`: Number of points taken from model point cloud. Higher number of model samples may increase computational complexity of the algorithm
-`max_distance_between_corresponding_points`: Maximum distance threshold to match between model samples and laser scan data points on 2D
-`scoreThreshold`: If bestScore is higher than this scoreThreshold, program prints `BAD SCORE`.
-`vShapeModelName`: robot charge station model point cloud file. Type of file is `.pcd`
-`laserFrameName`: Frame name of laser scan data
-`mapFrameName`: Map frame name. It is used to get frame transformation.
-`laserScanName`: Laser scan data topic name. It is used to subscribe lase I             
-`absolute_path`: Absolute path of project files. It is used to give model point cloud file location.
+The user may need to tune given parameters located in `params.launch` file.\
+`initialGuess_yaw_degrees`: initial angle guess on radian\
+`modelSampleNum`: Number of points taken from model point cloud. Higher number of model samples may increase computational complexity of the algorithm\
+`max_distance_between_corresponding_points`: Maximum distance threshold to match between model samples and laser scan data points on 2D\
+`scoreThreshold`: If bestScore is higher than this scoreThreshold, program prints `BAD SCORE`.\
+`vShapeModelName`: robot charge station model point cloud file. Type of file is `.pcd`\
+`laserFrameName`: Frame name of laser scan data\
+`mapFrameName`: Map frame name. It is used to get frame transformation.\
+`laserScanName`: Laser scan data topic name. It is used to subscribe laser scan data\     
+`absolute_path`: Absolute path of project files. It is used to give model point cloud file location.\
 
 ```bash
     <param name="initialGuess_yaw_degrees" type="double" value="265.364" />
