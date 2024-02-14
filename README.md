@@ -1,6 +1,6 @@
 # Robot Charge Station Detection using Template Matching
 
-## Overview
+### Overview
 The `dock_scan_template_matching` package is a specialized ROS package. It implements algorithm for robust robot charge station detection for accurate and precise docking purpose using 2D laser scan data. Firstly downsamples model point cloud to decrease computational complexity. After that, sampled model point cloud is transformed to every point from laser scan data on 2D. After transformation of model point cloud, score is calculated according to corresponding points between model and laser scan data by comparing their distance. Bestscore gives best transformation for model point cloud. It means that best tranformation gives accurate and precise location of robot charge station for docking purpose.
 I am sharing my result on record of rviz visualizer;
 https://youtu.be/Tps68zlMCuk
